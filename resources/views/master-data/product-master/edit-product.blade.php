@@ -66,6 +66,11 @@
                                 <label for="producer" class="block font-medium text-gray-700">Producer:</label>
                                 <input type="text" id="producer" name="producer" value="{{ old('producer', $product->producer) }}" required class="w-full p-2 mt-2 border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
                             </div>
+
+                            <div class="mb-6">
+                                <label for="producer" class="block font-medium text-gray-700">Producer:</label>
+                                <input type="text" id="producer" name="producer" value="{{ old('producer', $product->producer) }}" required class="w-full p-2 mt-2 border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>                            
                             <div class="flex justify-end">
                                 <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Update Product</button>
                             </div>

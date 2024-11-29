@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::query();
+        $query = Product::with('supplier');
 
         if ($request->has('search') && $request->search != '') {
             $search = $request->search;
@@ -22,6 +22,7 @@ class ProductController extends Controller
         }
 
         $data = $query->paginate(2);
+        //return $data;
         return view("master-data.product-master.index-product", compact('data'));
     }
 
@@ -39,6 +40,7 @@ class ProductController extends Controller
             'information'  => 'nullable|string',
             'qty'          => 'required|integer|min:1',
             'producer'     => 'required|string|max:255',
+            'supplier_id'  => 'required|exists:suppliers, id',
         ]);
 
         Product::create($validatedData);
@@ -58,6 +60,7 @@ class ProductController extends Controller
         return view('master-data.product-master.edit-product', compact('product'));
     }
 
+    
     public function update(Request $request, string $id)
     {
         $validatedData = $request->validate([
